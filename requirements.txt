@@ -1,6 +1,6 @@
 opencv-python
+tensorflow
 numpy
 pandas
 matplotlib
 tqdm
-warnings
