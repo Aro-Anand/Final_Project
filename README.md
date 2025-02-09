@@ -19,7 +19,6 @@ An end-to-end solution for automated waste classification using a custom Convolu
 - [Future Work](#future-work)
 - [Conclusion](#conclusion)
 - [References](#references)
-- [License](#license)
 
 ---
 
@@ -51,7 +50,6 @@ Waste management is a critical environmental challenge, with improper waste sort
 
 Ensure you have Python 3.7 or later installed. Then, install the required dependencies:
 
-```bash
 pip install tensorflow keras opencv-python-headless pillow matplotlib seaborn tqdm streamlit kagglehub
 Dataset
 The dataset for this project is sourced from Kaggle using the kagglehub package. The dataset includes images organized into two directories:
@@ -59,10 +57,6 @@ The dataset for this project is sourced from Kaggle using the kagglehub package.
 TRAIN: Contains images for training the model, organized by waste category (e.g., Organic, Recyclable).
 TEST: Contains images for evaluating the model.
 The dataset is downloaded automatically via the following code snippet in the project:
-
-python
-Copy
-Edit
 import kagglehub
 path = kagglehub.dataset_download("techsash/waste-classification-data")
 Methodology
@@ -126,53 +120,44 @@ Dense Layers:
 Flatten → Dense (256 units) → BatchNormalization → ReLU Activation → Dropout
 Dense (64 units) → BatchNormalization → ReLU Activation → Dropout
 Final Dense Layer with softmax activation for 2 classes.
-Training & Evaluation
-Compilation:
 
-Optimizer: Adam
-Loss Function: categorical_crossentropy
-Metrics: Accuracy
-Callbacks:
-
-EarlyStopping: Stops training if validation loss doesn’t improve for a set number of epochs.
-ModelCheckpoint: Saves the best model based on validation performance.
+- Training & Evaluation
+  1.Compilation:
+    - Optimizer: Adam
+    - Loss Function: categorical_crossentropy
+    - Metrics: Accuracy
+2.Callbacks:
+    - EarlyStopping: Stops training if validation loss doesn’t improve for a set number of epochs.
+    - ModelCheckpoint: Saves the best model based on validation performance.
 ReduceLROnPlateau: Reduces the learning rate when performance stagnates.
 Evaluation Metrics:
 
 Accuracy and loss curves plotted over epochs.
 Confusion matrix and classification reports generated for detailed performance analysis.
-Deployment
-The deployment phase uses Streamlit to create a web interface:
 
-File Upload:
-Users can upload an image through the web interface.
-Real-Time Inference:
-The uploaded image is preprocessed (resized, normalized) and fed into the trained CNN model.
-The model predicts whether the image shows organic or recyclable waste.
-Display:
-The app displays the uploaded image along with the prediction result.
-Results
-The developed model effectively classifies waste images into two categories.
-The use of data augmentation and advanced training techniques led to improved generalization.
-The interactive Streamlit app successfully demonstrates real-time waste classification, making the system accessible for practical use.
-Future Work
-Model Enhancements:
+- Deployment
+   The deployment phase uses Streamlit to create a web interface:
 
-Explore advanced architectures such as transfer learning with MobileNet or ResNet.
-Experiment with additional hyperparameter tuning.
-Extended Classification:
+  1.File Upload:
+    - Users can upload an image through the web interface.
+  2.Real-Time Inference:
+    - The uploaded image is preprocessed (resized, normalized) and fed into the trained CNN model.
+    - The model predicts whether the image shows organic or recyclable waste.
+  3.Display:
+    -The app displays the uploaded image along with the prediction result.
 
-Expand the project to classify additional waste categories.
-Deployment Improvements:
+- Results
+  - The developed model effectively classifies waste images into two categories.
+  - The use of data augmentation and advanced training techniques led to improved generalization.
+  - The interactive Streamlit app successfully demonstrates real-time waste classification, making the system accessible for practical use.
 
-Integrate with cloud services and CI/CD pipelines for scalable deployment.
-Enhance the user interface for broader accessibility.
-Conclusion
+
+- Conclusion
 This project demonstrates an end-to-end solution for automated waste classification, addressing the challenges of manual sorting and environmental inefficiencies. By leveraging CNNs, advanced data processing techniques, and an interactive deployment using Streamlit, the system not only achieves high classification accuracy but also provides a scalable solution for sustainable waste management.
 
-References
-TensorFlow Documentation
-Keras Documentation
-OpenCV Documentation
-Streamlit Documentation
-Waste Classification Dataset on Kaggle
+- References
+TensorFlow Documentation - https://www.tensorflow.org/
+Keras Documentation - https://www.tensorflow.org/guide/keras
+OpenCV Documentation - https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html
+Streamlit Documentation - https://docs.streamlit.io/
+Waste Classification Dataset on Kaggle - https://www.kaggle.com/datasets/techsash/waste-classification-data/data
