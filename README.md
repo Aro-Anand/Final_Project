@@ -50,76 +50,51 @@ Waste management is a critical environmental challenge, with improper waste sort
 
 Ensure you have Python 3.7 or later installed. Then, install the required dependencies:
 
-pip install tensorflow keras opencv-python-headless pillow matplotlib seaborn tqdm streamlit kagglehub
-Dataset
+--pip install tensorflow keras opencv-python-headless pillow matplotlib seaborn tqdm streamlit kagglehub
+
+**Dataset**
 The dataset for this project is sourced from Kaggle using the kagglehub package. The dataset includes images organized into two directories:
 
-TRAIN: Contains images for training the model, organized by waste category (e.g., Organic, Recyclable).
-TEST: Contains images for evaluating the model.
+  - TRAIN: Contains images for training the model, organized by waste category (e.g., Organic, Recyclable).
+  - TEST: Contains images for evaluating the model.
 The dataset is downloaded automatically via the following code snippet in the project:
-import kagglehub
-path = kagglehub.dataset_download("techsash/waste-classification-data")
-Methodology
-Data Collection & Preparation:
 
-Download and organize the dataset.
-Visualize the class distribution and sample images.
-Data Preprocessing & Augmentation:
+    >>>import kagglehub
+    >>>path = kagglehub.dataset_download("techsash/waste-classification-data")
 
-Resize images to 224x224 pixels.
-Normalize pixel values to [0, 1].
-Apply augmentation techniques to increase data diversity.
-Model Architecture:
+**Methodology**
+  1. Data Collection & Preparation:
+    -Download and organize the dataset.
+    -Visualize the class distribution and sample images.
+  2. Data Preprocessing & Augmentation:
+    -Resize images to 224x224 pixels.
+    -Normalize pixel values to [0, 1].
+    -Apply augmentation techniques to increase data diversity.
+  3. Model Architecture:
+    -Build a CNN with convolutional layers, BatchNormalization, activation functions, pooling, dropout, and dense layers.
+    -Use softmax activation in the final layer for categorical classification.
+  4. Training Process:
+    -Compile the model using the Adam optimizer and categorical crossentropy loss.
+    -Incorporate callbacks such as EarlyStopping, ModelCheckpoint, and ReduceLROnPlateau for effective training.
+  5. Deployment:
+    -Develop an interactive Streamlit web app to allow users to upload images and receive real-time waste classification predictions.
 
-Build a CNN with convolutional layers, BatchNormalization, activation functions, pooling, dropout, and dense layers.
-Use softmax activation in the final layer for categorical classification.
-Training Process:
+**Running the Web App**
+  -To deploy the interactive web application:
+  -Ensure that the trained model file (e.g., best_model.h5) is available in the project directory.
+  -Run the following command:
+      >>>streamlit run app.py
+**Model Architecture**
+  -The CNN model is structured as follows:
 
-Compile the model using the Adam optimizer and categorical crossentropy loss.
-Incorporate callbacks such as EarlyStopping, ModelCheckpoint, and ReduceLROnPlateau for effective training.
-Deployment:
-
-Develop an interactive Streamlit web app to allow users to upload images and receive real-time waste classification predictions.
-Usage
-Running the Training Script
-To train the model, execute the notebook or script containing the training code. Ensure that your dataset paths are correctly set:
-
-python
-Copy
-Edit
-train_path = "path/to/your/dataset/TRAIN"
-test_path = "path/to/your/dataset/TEST"
-Then run:
-
-bash
-Copy
-Edit
-python train_model.py
-or open the Jupyter Notebook and run all cells sequentially.
-
-Running the Web App
-To deploy the interactive web application:
-
-Ensure that the trained model file (e.g., best_model.h5) is available in the project directory.
-Run the following command:
-bash
-Copy
-Edit
-streamlit run app.py
-Open the provided local URL in your browser to interact with the app.
-Model Architecture
-The CNN model is structured as follows:
-
-Convolutional Blocks:
-
-Block 1: Conv2D (32 filters) → BatchNormalization → ReLU Activation → MaxPooling2D
-Block 2: Conv2D (64 filters) → BatchNormalization → ReLU Activation → MaxPooling2D
-Block 3: Conv2D (128 filters) → BatchNormalization → ReLU Activation → MaxPooling2D
-Dense Layers:
-
-Flatten → Dense (256 units) → BatchNormalization → ReLU Activation → Dropout
-Dense (64 units) → BatchNormalization → ReLU Activation → Dropout
-Final Dense Layer with softmax activation for 2 classes.
+  *Convolutional Blocks:*
+    -> Block 1: Conv2D (32 filters) → BatchNormalization → ReLU Activation → MaxPooling2D
+    -> Block 2: Conv2D (64 filters) → BatchNormalization → ReLU Activation → MaxPooling2D
+    -> Block 3: Conv2D (128 filters) → BatchNormalization → ReLU Activation → MaxPooling2D
+  *Dense Layers:*
+    -> Flatten → Dense (256 units) → BatchNormalization → ReLU Activation → Dropout
+    -> Dense (64 units) → BatchNormalization → ReLU Activation → Dropout
+    -> Final Dense Layer with softmax activation for 2 classes.
 
 - Training & Evaluation
   1.Compilation:
@@ -135,7 +110,7 @@ Evaluation Metrics:
 Accuracy and loss curves plotted over epochs.
 Confusion matrix and classification reports generated for detailed performance analysis.
 
-- Deployment
+**Deployment**
    The deployment phase uses Streamlit to create a web interface:
 
   1.File Upload:
@@ -146,13 +121,13 @@ Confusion matrix and classification reports generated for detailed performance a
   3.Display:
     -The app displays the uploaded image along with the prediction result.
 
-- Results
+  **Results**
   - The developed model effectively classifies waste images into two categories.
   - The use of data augmentation and advanced training techniques led to improved generalization.
   - The interactive Streamlit app successfully demonstrates real-time waste classification, making the system accessible for practical use.
 
 
-- Conclusion
+  **Conclusion**
 This project demonstrates an end-to-end solution for automated waste classification, addressing the challenges of manual sorting and environmental inefficiencies. By leveraging CNNs, advanced data processing techniques, and an interactive deployment using Streamlit, the system not only achieves high classification accuracy but also provides a scalable solution for sustainable waste management.
 
 - References
