@@ -11,7 +11,6 @@ An end-to-end solution for automated waste classification using a custom Convolu
 - [Installation](#installation)
 - [Dataset](#dataset)
 - [Methodology](#methodology)
-- [Usage](#usage)
 - [Model Architecture](#model-architecture)
 - [Training & Evaluation](#training--evaluation)
 - [Deployment](#deployment)
@@ -87,12 +86,12 @@ The dataset is downloaded automatically via the following code snippet in the pr
 **Model Architecture**
   -The CNN model is structured as follows:
 
-  *Convolutional Blocks:*
-    -> Block 1: Conv2D (32 filters) → BatchNormalization → ReLU Activation → MaxPooling2D   
-    -> Block 2: Conv2D (64 filters) → BatchNormalization → ReLU Activation → MaxPooling2D   
-    -> Block 3: Conv2D (128 filters) → BatchNormalization → ReLU Activation → MaxPooling2D   
-  *Dense Layers:*
-    -> Flatten → Dense (256 units) → BatchNormalization → ReLU Activation → Dropout   
+  *Convolutional Blocks:*                        
+    -> Block 1: Conv2D (32 filters) → BatchNormalization → ReLU Activation → MaxPooling2D                           
+    -> Block 2: Conv2D (64 filters) → BatchNormalization → ReLU Activation → MaxPooling2D                          
+    -> Block 3: Conv2D (128 filters) → BatchNormalization → ReLU Activation → MaxPooling2D                      
+  *Dense Layers:*                                                                 
+    -> Flatten → Dense (256 units) → BatchNormalization → ReLU Activation → Dropout    
     -> Dense (64 units) → BatchNormalization → ReLU Activation → Dropout    
     -> Final Dense Layer with softmax activation for 2 classes.   
 
@@ -131,8 +130,8 @@ Confusion matrix and classification reports generated for detailed performance a
 This project demonstrates an end-to-end solution for automated waste classification, addressing the challenges of manual sorting and environmental inefficiencies. By leveraging CNNs, advanced data processing techniques, and an interactive deployment using Streamlit, the system not only achieves high classification accuracy but also provides a scalable solution for sustainable waste management.
 
 - References
-TensorFlow Documentation - https://www.tensorflow.org/
-Keras Documentation - https://www.tensorflow.org/guide/keras
-OpenCV Documentation - https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html
-Streamlit Documentation - https://docs.streamlit.io/
-Waste Classification Dataset on Kaggle - https://www.kaggle.com/datasets/techsash/waste-classification-data/data
+TensorFlow Documentation - https://www.tensorflow.org/                     
+Keras Documentation - https://www.tensorflow.org/guide/keras                      
+OpenCV Documentation - https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html                   
+Streamlit Documentation - https://docs.streamlit.io/                                                                 
+Waste Classification Dataset on Kaggle - https://www.kaggle.com/datasets/techsash/waste-classification-data/data            
