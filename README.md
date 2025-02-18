@@ -88,20 +88,20 @@ The dataset is downloaded automatically via the following code snippet in the pr
   -The CNN model is structured as follows:
 
   *Convolutional Blocks:*
-    -> Block 1: Conv2D (32 filters) → BatchNormalization → ReLU Activation → MaxPooling2D
-    -> Block 2: Conv2D (64 filters) → BatchNormalization → ReLU Activation → MaxPooling2D
-    -> Block 3: Conv2D (128 filters) → BatchNormalization → ReLU Activation → MaxPooling2D
+    -> Block 1: Conv2D (32 filters) → BatchNormalization → ReLU Activation → MaxPooling2D   
+    -> Block 2: Conv2D (64 filters) → BatchNormalization → ReLU Activation → MaxPooling2D   
+    -> Block 3: Conv2D (128 filters) → BatchNormalization → ReLU Activation → MaxPooling2D   
   *Dense Layers:*
-    -> Flatten → Dense (256 units) → BatchNormalization → ReLU Activation → Dropout
-    -> Dense (64 units) → BatchNormalization → ReLU Activation → Dropout
-    -> Final Dense Layer with softmax activation for 2 classes.
+    -> Flatten → Dense (256 units) → BatchNormalization → ReLU Activation → Dropout   
+    -> Dense (64 units) → BatchNormalization → ReLU Activation → Dropout    
+    -> Final Dense Layer with softmax activation for 2 classes.   
 
-- Training & Evaluation
+**Training & Evaluation**
   1.Compilation:
     - Optimizer: Adam
     - Loss Function: categorical_crossentropy
     - Metrics: Accuracy
-2.Callbacks:
+  2.Callbacks:
     - EarlyStopping: Stops training if validation loss doesn’t improve for a set number of epochs.
     - ModelCheckpoint: Saves the best model based on validation performance.
 ReduceLROnPlateau: Reduces the learning rate when performance stagnates.
